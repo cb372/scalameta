@@ -75,9 +75,13 @@ lazy val common = Project(
   base = file("scalameta/common")
 ) settings (
   publishableSettings,
-  libraryDependencies += "com.lihaoyi" %% "sourcecode" % "0.1.3",
+  libraryDependencies ++= Seq(
+    "com.lihaoyi" %% "sourcecode" % "0.1.3",
+    "org.scalameta" %% "scalameta" % "1.6.0" % "provided"
+  ),
   description := "Bag of private and public helpers used in scala.meta's APIs and implementations",
-  enableMacros
+  enableMacros,
+  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-M7" cross CrossVersion.full)
 )
 
 lazy val dialects = Project(

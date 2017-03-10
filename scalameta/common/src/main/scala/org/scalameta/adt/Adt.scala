@@ -19,6 +19,13 @@ import scala.meta.common.Optional
 // Much as with the @data annotation, we use macro annotations to codify a well-known pattern
 // and tailor it to our needs with the extensibility that macro annotations provide.
 
+//class test extends StaticAnnotation {
+  //import scala.meta._
+  //inline def apply(annottees: Any): Any = meta {
+    //q"object Foo"
+  //}
+//}
+
 class root extends StaticAnnotation {
   def macroTransform(annottees: Any*): Any = macro AdtNamerMacros.root
 }
